@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, use_key_in_widget_constructors, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -16,10 +16,12 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0; //untuk memilih index dari list _icons
   List<IconData> _icons = [
     FontAwesomeIcons.plane,
-    FontAwesomeIcons.bed,
-    FontAwesomeIcons.personWalking,
-    FontAwesomeIcons.personBiking,
+    FontAwesomeIcons.hotel,
+    FontAwesomeIcons.car,
+    FontAwesomeIcons.gamepad,
   ];
+
+  List<String> _textForIcon = ['Pesawat', 'Hotel', 'Mobil', 'Game'];
 
   Widget _buildIcon(int index) {
     return GestureDetector(
@@ -30,24 +32,43 @@ class _HomeScreenState extends State<HomeScreen> {
         });
         print(index);
       },
-      child: Container(
-        height: 60,
-        width: 60,
-        decoration: BoxDecoration(
-          //background warna terpilih ? warna idup : warna mati
-          color: _selectedIndex == index
-              ? Theme.of(context).colorScheme.secondary
-              : Color.fromARGB(255, 227, 227, 227),
-          borderRadius: BorderRadius.circular(30),
-        ),
-        child: Icon(
-          _icons[index],
-          size: 25,
-          //icon warna terpilih ? warna idup : warna mati
-          color: _selectedIndex == index
-              ? Theme.of(context).primaryColor
-              : Color.fromARGB(255, 108, 107, 107),
-        ),
+      child: Column(
+        children: [
+          Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              //background warna terpilih ? warna idup : warna mati
+              color: _selectedIndex == index
+                  ? Theme.of(context).colorScheme.secondary
+                  : Color.fromARGB(255, 238, 235, 235),
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Icon(
+              _icons[index],
+              size: 25,
+              //icon warna terpilih ? warna idup : warna mati
+              color: _selectedIndex == index
+                  ? Theme.of(context).primaryColor
+                  : Color.fromARGB(255, 157, 157, 157),
+            ),
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            child: Text(
+              _textForIcon[index],
+              style: TextStyle(
+                color: _selectedIndex == index
+                    ? Color.fromARGB(255, 34, 33, 33)
+                    : Color.fromARGB(255, 157, 157, 157),
+                fontWeight: FontWeight.w500,
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -62,8 +83,8 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 120),
               child: Text(
-                'Apa yang mau kamu cari?',
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                'Apa yang kamu butuhkan hari ini?',
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
             SizedBox(height: 20),
@@ -84,9 +105,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        //hapus label
+        //https://stackoverflow.com/questions/52182384/flutter-how-to-hide-remove-title-of-bottomnavigationbaritem
         showSelectedLabels: false,
         showUnselectedLabels: false,
         currentIndex: _currentTab,
+        //warna selected item
+        //https://stackoverflow.com/questions/49307858/style-bottomnavigationbar-in-flutter
+        selectedItemColor: Theme.of(context).primaryColor,
         onTap: (int value) {
           setState(() {
             _currentTab = value;
@@ -96,14 +122,14 @@ class _HomeScreenState extends State<HomeScreen> {
           BottomNavigationBarItem(
             icon: Icon(
               FontAwesomeIcons.magnifyingGlass,
-              size: 30,
+              size: 20,
             ),
             label: 'Home 1 clicked',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               FontAwesomeIcons.globe,
-              size: 30,
+              size: 20,
             ),
             label: 'Explore 2 clicked',
           ),
@@ -112,7 +138,9 @@ class _HomeScreenState extends State<HomeScreen> {
               radius: 15,
               //image dari internet
               backgroundImage: NetworkImage(
-                "https://i.imgur.com/gd1jhdo.gif",
+                // "https://i.imgur.com/gd1jhdo.gif", kucing
+                // "https://i.imgur.com/Os63UKo.gif", poto goyang
+                "https://i.imgur.com/4SUrRgI.gif",
               ),
             ),
             label: 'Profile 3 clicked',
