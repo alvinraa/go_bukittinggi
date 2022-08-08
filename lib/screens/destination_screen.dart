@@ -173,14 +173,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               Column(
                                 children: [
                                   Text(
-                                    "Rp. ${activity.price}",
+                                    // "Rp. ${activity.price}",
+                                    "Rp. 999K",
                                     style: TextStyle(
-                                      fontSize: 22,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   Text(
-                                    "/ Malam",
+                                    "/ Hari",
                                     style: TextStyle(color: Colors.grey),
                                   ),
                                 ],
@@ -204,7 +205,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: Text(activity.startTimes[0]),
+                                child: Text(
+                                  activity.startTimes[0],
+                                  style: TextStyle(fontSize: 12),
+                                ),
                               ),
                               SizedBox(width: 10),
                               Container(
@@ -216,7 +220,10 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                       Theme.of(context).colorScheme.secondary,
                                   borderRadius: BorderRadius.circular(10),
                                 ),
-                                child: Text(activity.startTimes[1]),
+                                child: Text(
+                                  activity.startTimes[1],
+                                  style: TextStyle(fontSize: 12),
+                                ),
                               ),
                             ],
                           )

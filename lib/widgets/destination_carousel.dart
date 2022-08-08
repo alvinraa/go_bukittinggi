@@ -17,9 +17,9 @@ class DestinationCarousel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                "Top Destinations",
+                "Destinasi Favorit",
                 style: TextStyle(
-                  fontSize: 22,
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -30,7 +30,7 @@ class DestinationCarousel extends StatelessWidget {
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 ),
               ),
@@ -77,7 +77,7 @@ class DestinationCarousel extends StatelessWidget {
                                 Text(
                                   "${destination.activities.length} aktifitas",
                                   style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 20,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -85,6 +85,7 @@ class DestinationCarousel extends StatelessWidget {
                                   destination.description,
                                   style: TextStyle(
                                     color: Colors.grey,
+                                    fontSize: 14,
                                   ),
                                 ),
                               ],
@@ -141,10 +142,10 @@ class DestinationCarousel extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                            )
+                            ),
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

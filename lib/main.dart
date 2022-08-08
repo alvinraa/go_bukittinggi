@@ -15,15 +15,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Go Bukittinggi',
+      title: 'Go Traveling',
       theme: ThemeData(
-        primaryColor: const Color(0xFF3EBACE),
+        primaryColor: const Color(0xFF656CD0),
         colorScheme: ColorScheme.fromSwatch()
-            .copyWith(secondary: const Color(0xFFD8ECF1)),
+            .copyWith(secondary: Color.fromARGB(255, 237, 238, 247)),
         scaffoldBackgroundColor: const Color(0xFFF3F5F7),
       ),
-      // home: HomeScreen(),
-      home: LoginPage(),
+      home: HomeScreen(),
+      // home: LoginPage(),
     );
   }
 }

@@ -127,7 +127,29 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 50),
-                          Container()
+                          Container(
+                            height: 50,
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                            ),
+                            child: Center(
+                              child: Text(
+                                "Masuk",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: 100),
+                          Text(
+                            "Lupa password?",
+                            style: TextStyle(
+                              color: Theme.of(context).primaryColor,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
                     ),
