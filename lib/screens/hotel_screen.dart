@@ -84,8 +84,8 @@ class _HotelScreenState extends State<HotelScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    // widget.hotel.city,
-                    "nama kota hotel?",
+                    widget.hotel.name,
+                    // "nama kota hotel?",
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 32,
@@ -101,8 +101,8 @@ class _HotelScreenState extends State<HotelScreen> {
                       ),
                       SizedBox(width: 5),
                       Text(
-                        // widget.hotel.country,
-                        "nama tempat hotel?",
+                        widget.hotel.address,
+                        // "nama tempat hotel?",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 20,

@@ -1,9 +1,17 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, avoid_unnecessary_containers
 
 import 'package:flutter/material.dart';
+import 'package:go_bukittinggi/screens/home_screen.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool hidePassword = true;
 
   @override
   Widget build(BuildContext context) {
@@ -119,35 +127,71 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                             child: TextField(
+                              obscureText: hidePassword,
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Masukkan Password",
                                 hintStyle: TextStyle(color: Colors.grey),
+                                suffixIcon: hidePassword == false
+                                    ? InkWell(
+                                        child: Icon(Icons.visibility_off),
+                                        onTap: () {
+                                          setState(() {
+                                            hidePassword = true;
+                                          });
+                                        },
+                                      )
+                                    : InkWell(
+                                        child: Icon(
+                                          Icons.visibility,
+                                          color: Theme.of(context).primaryColor,
+                                        ),
+                                        onTap: () {
+                                          setState(() {
+                                            hidePassword = false;
+                                          });
+                                        },
+                                      ),
                               ),
                             ),
                           ),
                           SizedBox(height: 50),
-                          Container(
-                            height: 50,
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                            ),
-                            child: Center(
-                              child: Text(
-                                "Masuk",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => HomeScreen(),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              height: 50,
+                              decoration: BoxDecoration(
+                                color: Theme.of(context).primaryColor,
+                              ),
+                              child: Center(
+                                child: Text(
+                                  "Masuk",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
                           SizedBox(height: 100),
-                          Text(
-                            "Lupa password?",
-                            style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
+                          InkWell(
+                            onTap: () {
+                              print('Lupa password clicked');
+                            },
+                            child: Text(
+                              "Lupa password?",
+                              style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
