@@ -158,7 +158,7 @@ class _LoginPageState extends State<LoginPage> {
                           SizedBox(height: 50),
                           InkWell(
                             onTap: () {
-                              Navigator.push(
+                              Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => HomeScreen(),
@@ -181,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 100),
+                          SizedBox(height: 50),
                           InkWell(
                             onTap: () {
                               print('Lupa password clicked');

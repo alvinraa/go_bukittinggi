@@ -92,9 +92,10 @@ class HotelCarousel extends StatelessWidget {
                                 ),
                                 SizedBox(height: 2),
                                 Text(
-                                  "Rp. ${hotel.price} /malam",
+                                  "Rp. ${hotel.price} jt/malam",
                                   style: TextStyle(
                                     fontSize: 16,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 )
                               ],

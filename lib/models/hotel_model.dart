@@ -20,7 +20,7 @@ class Hotel {
 // list hotel harus di ganti
 List<ActivityHotel> activities = [
   ActivityHotel(
-    imageUrl: 'assets/images/stmarksbasilica.jpg',
+    imageUrl: 'assets/images/activity_example1.jpg',
     name: 'St. Mark\'s Basilica',
     type: 'Sightseeing Tour',
     startTimes: ['9:00 am', '11:00 am'],
@@ -28,7 +28,7 @@ List<ActivityHotel> activities = [
     price: 30,
   ),
   ActivityHotel(
-    imageUrl: 'assets/images/gondola.jpg',
+    imageUrl: 'assets/images/activity_example2.jpg',
     name: 'Walking Tour and Gonadola Ride',
     type: 'Sightseeing Tour',
     startTimes: ['11:00 pm', '1:00 pm'],
@@ -36,23 +36,7 @@ List<ActivityHotel> activities = [
     price: 210,
   ),
   ActivityHotel(
-    imageUrl: 'assets/images/murano.jpg',
-    name: 'Murano and Burano Tour',
-    type: 'Sightseeing Tour',
-    startTimes: ['12:30 pm', '2:00 pm'],
-    rating: 3,
-    price: 125,
-  ),
-  ActivityHotel(
-    imageUrl: 'assets/images/murano.jpg',
-    name: 'Murano and Burano Tour',
-    type: 'Sightseeing Tour',
-    startTimes: ['12:30 pm', '2:00 pm'],
-    rating: 3,
-    price: 125,
-  ),
-  ActivityHotel(
-    imageUrl: 'assets/images/murano.jpg',
+    imageUrl: 'assets/images/activity_example3.jpg',
     name: 'Murano and Burano Tour',
     type: 'Sightseeing Tour',
     startTimes: ['12:30 pm', '2:00 pm'],
@@ -65,38 +49,24 @@ List<ActivityHotel> activities = [
 // list hotel harus di ganti
 final List<Hotel> hotels = [
   Hotel(
-    imageUrl: 'assets/images/hotel0.jpg',
-    name: 'Hotel 0',
-    address: '404 Great St',
-    price: 175,
+    imageUrl: 'assets/images/hotel_example1.jpg',
+    name: 'The Oberoi Lombok',
+    address: 'Medana Bay - Lombok',
+    price: 15,
     activities: activities,
   ),
   Hotel(
-    imageUrl: 'assets/images/hotel1.jpg',
-    name: 'Hotel 1',
-    address: '404 Great St',
-    price: 300,
+    imageUrl: 'assets/images/hotel_example2.jpg',
+    name: 'Intercontinental Bali',
+    address: 'Kuta Selatan - Bali',
+    price: 11,
     activities: activities,
   ),
   Hotel(
-    imageUrl: 'assets/images/hotel2.jpg',
-    name: 'Hotel 2',
-    address: '404 Great St',
-    price: 240,
-    activities: activities,
-  ),
-  Hotel(
-    imageUrl: 'assets/images/hotel2.jpg',
-    name: 'Hotel 2',
-    address: '404 Great St',
-    price: 240,
-    activities: activities,
-  ),
-  Hotel(
-    imageUrl: 'assets/images/hotel2.jpg',
-    name: 'Hotel 2',
-    address: '404 Great St',
-    price: 240,
+    imageUrl: 'assets/images/hotel_example4.jpg',
+    name: 'Four Seasons',
+    address: 'Jimbaran Bay - Bali',
+    price: 13,
     activities: activities,
   ),
 ];
