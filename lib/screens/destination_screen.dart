@@ -1,30 +1,23 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, prefer_const_constructors_in_immutables, use_key_in_widget_constructors, sized_box_for_whitespace
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_bukittinggi/models/activity_model.dart';
 import 'package:go_bukittinggi/models/destination_model.dart';
 
-class DestinationScreen extends StatefulWidget {
+class DestinationScreen extends StatelessWidget {
   final Destination destination;
 
   DestinationScreen({Key? key, required this.destination});
 
-  @override
-  State<DestinationScreen> createState() => _DestinationScreenState();
-}
+  _buildRatingStars(int rating) {
+    String stars = '';
 
-_buildRatingStars(int rating) {
-  String stars = '';
-
-  for (int i = 0; i < rating; i++) {
-    stars += '⭐ ';
+    for (int i = 0; i < rating; i++) {
+      stars += '⭐ ';
+    }
+    stars.trim(); //menghilangkan spaci di depan dan di belakang
+    return Text(stars);
   }
-  stars.trim(); //menghilangkan spaci di depan dan di belakang
-  return Text(stars);
-}
 
-@override
-class _DestinationScreenState extends State<DestinationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,13 +31,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
               ),
               child: Image(
                 image: AssetImage(
-                  widget.destination.imageUrl,
+                  destination.imageUrl,
                 ),
                 fit: BoxFit.fill,
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 10,
                 vertical: 40,
               ),
@@ -53,7 +46,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 children: [
                   IconButton(
                     onPressed: () => Navigator.pop(context),
-                    icon: Icon(FontAwesomeIcons.arrowLeft),
+                    icon: const Icon(FontAwesomeIcons.arrowLeft),
                     iconSize: 20,
                     color: Colors.black,
                   ),
@@ -61,13 +54,13 @@ class _DestinationScreenState extends State<DestinationScreen> {
                     children: [
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(FontAwesomeIcons.magnifyingGlass),
+                        icon: const Icon(FontAwesomeIcons.magnifyingGlass),
                         iconSize: 20,
                         color: Colors.black,
                       ),
                       IconButton(
                         onPressed: () {},
-                        icon: Icon(FontAwesomeIcons.bars),
+                        icon: const Icon(FontAwesomeIcons.bars),
                         iconSize: 20,
                         color: Colors.black,
                       ),
@@ -83,8 +76,8 @@ class _DestinationScreenState extends State<DestinationScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.destination.city,
-                    style: TextStyle(
+                    destination.city,
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 32,
                       fontWeight: FontWeight.w500,
@@ -92,15 +85,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
                   ),
                   Row(
                     children: [
-                      Icon(
+                      const Icon(
                         FontAwesomeIcons.locationArrow,
                         size: 16,
                         color: Colors.white,
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
-                        widget.destination.country,
-                        style: TextStyle(
+                        destination.country,
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
@@ -116,7 +109,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
               child: GestureDetector(
                 //nantinya akan direct buka maps
                 onTap: () {},
-                child: Icon(
+                child: const Icon(
                   FontAwesomeIcons.mapLocationDot,
                   size: 30,
                   color: Colors.white,
@@ -127,15 +120,15 @@ class _DestinationScreenState extends State<DestinationScreen> {
         ),
         Expanded(
           child: ListView.builder(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
-            itemCount: widget.destination.activities.length,
+            padding: const EdgeInsets.only(top: 10, bottom: 10),
+            itemCount: destination.activities.length,
             itemBuilder: (BuildContext context, int index) {
               // return Text(widget.destination.activities[index].name);
-              Activity activity = widget.destination.activities[index];
+              Activity activity = destination.activities[index];
               return Stack(
                 children: [
                   Container(
-                    margin: EdgeInsets.fromLTRB(
+                    margin: const EdgeInsets.fromLTRB(
                       40, //left
                       5, //top
                       20, //right
@@ -161,7 +154,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 width: 120,
                                 child: Text(
                                   activity.name,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.w500,
                                   ),
@@ -173,14 +166,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                               Column(
                                 children: [
                                   Text(
-                                    // "Rp. ${activity.price}",
-                                    "Rp. 999K",
-                                    style: TextStyle(
+                                    "Rp. ${activity.price}K",
+                                    // "Rp. 999K",
+                                    style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  Text(
+                                  const Text(
                                     "/ Hari",
                                     style: TextStyle(color: Colors.grey),
                                   ),
@@ -190,14 +183,14 @@ class _DestinationScreenState extends State<DestinationScreen> {
                           ),
                           Text(
                             activity.type,
-                            style: TextStyle(color: Colors.grey),
+                            style: const TextStyle(color: Colors.grey),
                           ),
                           _buildRatingStars(activity.rating),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 width: 70,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
@@ -207,12 +200,12 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 ),
                                 child: Text(
                                   activity.startTimes[0],
-                                  style: TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 12),
                                 ),
                               ),
-                              SizedBox(width: 10),
+                              const SizedBox(width: 10),
                               Container(
-                                padding: EdgeInsets.all(5),
+                                padding: const EdgeInsets.all(5),
                                 width: 70,
                                 alignment: Alignment.center,
                                 decoration: BoxDecoration(
@@ -222,7 +215,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
                                 ),
                                 child: Text(
                                   activity.startTimes[1],
-                                  style: TextStyle(fontSize: 12),
+                                  style: const TextStyle(fontSize: 12),
                                 ),
                               ),
                             ],

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:go_bukittinggi/screens/home_screen.dart';
 
@@ -23,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
             children: [
               Container(
                 height: MediaQuery.of(context).size.width * 0.8,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   image: DecorationImage(
                     image:
                         AssetImage('assets/images/login_page_background.png'),
@@ -37,7 +35,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: 80,
                       height: 200,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
                                 'assets/images/login_page_light-1.png'),
@@ -50,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: 100,
                       height: 120,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
                                 'assets/images/login_page_light-2.png'),
@@ -63,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                       width: 100,
                       height: 150,
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
                                 'assets/images/login_page_clock.png'),
@@ -73,8 +71,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     Positioned(
                       child: Container(
-                        margin: EdgeInsets.only(top: 100),
-                        child: Center(
+                        margin: const EdgeInsets.only(top: 100),
+                        child: const Center(
                           child: Text(
                             "Login",
                             style: TextStyle(
@@ -90,11 +88,11 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: Column(
                   children: [
                     Container(
-                      padding: EdgeInsets.all(5),
+                      padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -102,14 +100,14 @@ class _LoginPageState extends State<LoginPage> {
                       child: Column(
                         children: [
                           Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(5),
+                            decoration: const BoxDecoration(
                               // color: Colors.white,
                               border: Border(
                                 bottom: BorderSide(color: Colors.grey),
                               ),
                             ),
-                            child: TextField(
+                            child: const TextField(
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Masukkan Email atau Nomor Telephone",
@@ -117,10 +115,10 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           Container(
-                            padding: EdgeInsets.all(5),
-                            decoration: BoxDecoration(
+                            padding: const EdgeInsets.all(5),
+                            decoration: const BoxDecoration(
                               // color: Colors.white,
                               border: Border(
                                 bottom: BorderSide(color: Colors.grey),
@@ -131,10 +129,10 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: "Masukkan Password",
-                                hintStyle: TextStyle(color: Colors.grey),
+                                hintStyle: const TextStyle(color: Colors.grey),
                                 suffixIcon: hidePassword == false
                                     ? InkWell(
-                                        child: Icon(Icons.visibility_off),
+                                        child: const Icon(Icons.visibility_off),
                                         onTap: () {
                                           setState(() {
                                             hidePassword = true;
@@ -155,13 +153,13 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 50),
+                          const SizedBox(height: 50),
                           InkWell(
                             onTap: () {
                               Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => HomeScreen(),
+                                  builder: (context) => const HomeScreen(),
                                 ),
                               );
                             },
@@ -170,7 +168,7 @@ class _LoginPageState extends State<LoginPage> {
                               decoration: BoxDecoration(
                                 color: Theme.of(context).primaryColor,
                               ),
-                              child: Center(
+                              child: const Center(
                                 child: Text(
                                   "Masuk",
                                   style: TextStyle(
@@ -181,7 +179,7 @@ class _LoginPageState extends State<LoginPage> {
                               ),
                             ),
                           ),
-                          SizedBox(height: 50),
+                          const SizedBox(height: 50),
                           InkWell(
                             onTap: () {
                               print('Lupa password clicked');

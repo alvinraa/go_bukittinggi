@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_final_fields, use_key_in_widget_constructors, avoid_unnecessary_containers
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_bukittinggi/widgets/destination_carousel.dart';
@@ -7,6 +5,8 @@ import 'package:go_bukittinggi/widgets/destination_carousel.dart';
 import '../widgets/hotel_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({Key? key}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -14,14 +14,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _currentTab = 0; //untuk index dari bottomNagivatorBar
   int _selectedIndex = 0; //untuk memilih index dari list _icons
-  List<IconData> _icons = [
+  final List<IconData> _icons = [
     FontAwesomeIcons.plane,
     FontAwesomeIcons.hotel,
     FontAwesomeIcons.car,
     FontAwesomeIcons.gamepad,
   ];
 
-  List<String> _textForIcon = ['Pesawat', 'Hotel', 'Mobil', 'Game'];
+  final List<String> _textForIcon = ['Pesawat', 'Hotel', 'Mobil', 'Game'];
 
   Widget _buildIcon(int index) {
     return GestureDetector(
@@ -41,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               //background warna terpilih ? warna idup : warna mati
               color: _selectedIndex == index
                   ? Theme.of(context).colorScheme.secondary
-                  : Color.fromARGB(255, 238, 235, 235),
+                  : const Color.fromARGB(255, 238, 235, 235),
               borderRadius: BorderRadius.circular(30),
             ),
             child: Icon(
@@ -50,10 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
               //icon warna terpilih ? warna idup : warna mati
               color: _selectedIndex == index
                   ? Theme.of(context).primaryColor
-                  : Color.fromARGB(255, 157, 157, 157),
+                  : const Color.fromARGB(255, 157, 157, 157),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Container(
@@ -61,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
               _textForIcon[index],
               style: TextStyle(
                 color: _selectedIndex == index
-                    ? Color.fromARGB(255, 34, 33, 33)
-                    : Color.fromARGB(255, 157, 157, 157),
+                    ? const Color.fromARGB(255, 34, 33, 33)
+                    : const Color.fromARGB(255, 157, 157, 157),
                 fontWeight: FontWeight.w500,
                 fontSize: 14,
               ),
@@ -78,16 +78,16 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       body: SafeArea(
         child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 30.0),
+          padding: const EdgeInsets.symmetric(vertical: 30.0),
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.only(left: 20, right: 120),
+            const Padding(
+              padding: EdgeInsets.only(left: 20, right: 120),
               child: Text(
                 'Apa yang kamu butuhkan hari ini?',
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: _icons
@@ -98,9 +98,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                   .toList(),
             ),
-            SizedBox(height: 20),
-            DestinationCarousel(),
-            HotelCarousel(),
+            const SizedBox(height: 20),
+            const DestinationCarousel(),
+            const HotelCarousel(),
           ],
         ),
       ),
@@ -118,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentTab = value;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(
               FontAwesomeIcons.magnifyingGlass,
